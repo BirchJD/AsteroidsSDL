@@ -12,10 +12,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#include <SDL2/SDL.h>
-#include "Asteroids.hpp"
 #include "AstroShot.hpp"
-
 
 
 AstroShot::AstroShot()

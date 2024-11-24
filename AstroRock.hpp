@@ -16,6 +16,13 @@
 #define __ASTROROCK_HPP
 
 
+#include "Asteroids.hpp"
+
+
+extern SDL_AudioDeviceID SdlAudioDevice;
+extern SdlAudioWavType WavFiles[];
+
+
 class AstroRock
 {
    public:

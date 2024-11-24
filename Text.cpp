@@ -12,12 +12,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#include <string.h>
-#include <ctype.h>
-#include <SDL2/SDL.h>
 #include "Text.hpp"
-#include "Asteroids.hpp"
-
 
 
 Text::Text()
@@ -902,7 +897,7 @@ void Text::SetLocation(int NewxOffset, int NewyOffset, int NewScale, int NewFram
       if (TextString[Digit] == '\n')
       {
          xOffset = xOffsetOrig;
-         yOffset += 5*Scale + 2;
+         yOffset += TEXT_Y_UNITS*Scale + 2;
       }
       else if (TextString[Digit] >= '!' && TextString[Digit] <= 'Z')
       {
@@ -912,10 +907,10 @@ void Text::SetLocation(int NewxOffset, int NewyOffset, int NewScale, int NewFram
             DisplayFrame[Digit][Count].y = Letter[TextString[Digit]-'!'][Count].y + yOffset;
          }
          DisplayFrame[Digit][MAX_POINTS].x = Letter[TextString[Digit]-'!'][MAX_POINTS].x;
-         xOffset += 4*Scale;
+         xOffset += TEXT_X_UNITS*Scale;
       }
       else
-         xOffset += 4*Scale;
+         xOffset += TEXT_X_UNITS*Scale;
    }
 }
 

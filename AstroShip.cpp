@@ -12,20 +12,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <SDL2/SDL.h>
-#include "Number.hpp"
-#include "Asteroids.hpp"
-#include "AstroShot.hpp"
 #include "AstroShip.hpp"
-
-
-
-extern SDL_AudioDeviceID SdlAudioDevice;
-extern SdlAudioWavType WavFiles[];
-
 
 
 AstroShip::AstroShip()
@@ -181,14 +168,14 @@ void AstroShip::Draw(SDL_Renderer* SdlRenderer)
             {
                do
                {
-                  ExplodeDirection[Count].x = (short)((float)rand()/RAND_MAX * 10)-5;
-               } while (ExplodeDirection[Count].x == 0);
+                  ExplodeDirectionX[Count] = (((float)rand()/RAND_MAX * 100)-50)/10;
+               } while (ExplodeDirectionX[Count] == 0);
                do
                {
-                  ExplodeDirection[Count].y = (short)((float)rand()/RAND_MAX * 10)-5;
-               } while (ExplodeDirection[Count].y == 0);
-               ExplodeDirection[Count+1].x = ExplodeDirection[Count].x;
-               ExplodeDirection[Count+1].y = ExplodeDirection[Count].y;
+                  ExplodeDirectionY[Count] = (((float)rand()/RAND_MAX * 100)-50)/10;
+               } while (ExplodeDirectionY[Count] == 0);
+               ExplodeDirectionX[Count+1] = ExplodeDirectionX[Count];
+               ExplodeDirectionY[Count+1] = ExplodeDirectionY[Count];
             }
   /********************************************/
  /* Split polygon shape into seperate lines. */
@@ -212,10 +199,10 @@ void AstroShip::Draw(SDL_Renderer* SdlRenderer)
          {
             for (Count = 0; Count < FRAME_POINTS*2; Count += 2)
             {
-               DisplayFrame[Count].x += ExplodeDirection[Count].x;
-               DisplayFrame[Count].y += ExplodeDirection[Count].y;
-               DisplayFrame[Count+1].x += ExplodeDirection[Count+1].x;
-               DisplayFrame[Count+1].y += ExplodeDirection[Count+1].y;
+               DisplayFrame[Count].x += ExplodeDirectionX[Count];
+               DisplayFrame[Count].y += ExplodeDirectionY[Count];
+               DisplayFrame[Count+1].x += ExplodeDirectionX[Count+1];
+               DisplayFrame[Count+1].y += ExplodeDirectionY[Count+1];
                SDL_SetRenderDrawColor(SdlRenderer, 0x7F + (float)rand()/RAND_MAX * 0x7F, (float)rand()/RAND_MAX * 0xFF, (float)rand()/RAND_MAX * 0xFF, 255);
 					SDL_RenderDrawLine(SdlRenderer, DisplayFrame[Count].x, DisplayFrame[Count].y, DisplayFrame[Count+1].x, DisplayFrame[Count+1].y);               
             }

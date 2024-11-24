@@ -16,60 +16,19 @@
 #define __ASTERIODS_HPP
 
 
-#define BUFF_SIZE             255
-
-#define COLOUR_SCORE          0x5F5FFF
-#define COLOUR_GAME_OVER      0xFF7F7F
-#define COLOUR_INSERT_COIN    0x8FFF8F
-#define COLOUR_HIGH_SCORE     0xFFFFFF
-#define COLOUR_SHOT           0xFFFFFF
-#define COLOUR_SHIP_LIFE      0x3F3FFF
-#define COLOUR_SHIP           0x7F7FFF
-#define COLOUR_ROCK           0xAF00AF
-#define COLOUR_UFO            0xFFFF00
-
-#define FLAG_EXIT             0b00000001
-#define FLAG_THRUST           0b00000010
-#define FLAG_ROTATE_LEFT      0b00000100
-#define FLAG_ROTATE_RIGHT     0b00001000
-
-
-enum
-{
-   WAV_ROCK = 0,
-   WAV_HYPER_SPACE = 1,
-   WAV_SHOT = 2,
-   WAV_THRUST = 3,
-   WAV_UFO = 4,
-   WAV_UFO_SHOT = 5,
-   WAV_BELT = 6,
-   MAX_WAV_FILES = 7
-};
-
-enum
-{
-   START_ROCKS = 5,
-   MAX_ROCKS = 100,
-   HISCORE_XOFFSET = 55,
-   HISCORE_YOFFSET = 20,
-   GAMEOVER_XOFFSET = 90,
-   GAMEOVER_YOFFSET = 20,
-   INSERTCOIN_XOFFSET = 110,
-   INSERTCOIN_YOFFSET = 20,
-   HISCORE_SCALE = 3
-};
-
-
-typedef struct 
-{
-   SDL_AudioSpec WavSpec;
-   Uint32 WavLength;
-   Uint8 *WavBuffer;
-} SdlAudioWavType;
+#include <stdio.h>
+#include <time.h>
+#include "Common.hpp"
+#include "Text.hpp"
+#include "Button.hpp"
+#include "AstroShip.hpp"
+#include "Astro_UFO.hpp"
+#include "AstroRock.hpp"
 
 
 int WinMain(int argc, char* argv[]);
 int main(int argc, char* argv[]);
+void NewGame(SDL_Rect& Desktop);
 void DoFrame(SDL_Renderer* SdlRenderer, SDL_Rect* Desktop, unsigned char Flags);
 void DrawGraphics(SDL_Renderer* SdlRenderer);
 

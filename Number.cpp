@@ -12,11 +12,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#include <stdlib.h>
-#include <SDL2/SDL.h>
 #include "Number.hpp"
-#include "Asteroids.hpp"
-
 
 
 Number::Number()

@@ -12,16 +12,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include "Asteroids.hpp"
 #include "AstroRock.hpp"
-
-
-
-extern SDL_AudioDeviceID SdlAudioDevice;
-extern SdlAudioWavType WavFiles[];
-
 
 
 AstroRock::AstroRock()

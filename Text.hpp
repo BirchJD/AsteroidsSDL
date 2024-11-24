@@ -16,11 +16,18 @@
 #define __TEXT_HPP
 
 
+#include <string.h>
+#include <ctype.h>
+#include "Common.hpp"
+
+
 class Text
 {
    public:
       enum 
       {
+         TEXT_X_UNITS = 4,
+         TEXT_Y_UNITS = 5,
          MAX_LETTERS = 58,
          MAX_POINTS = 12,
          MAX_TEXT = 2048,
@@ -38,7 +45,6 @@ class Text
       short xOffset;
       short yOffset;
       short Scale;
-	   short Width;
       long TextColour;
       bool Visible;
       bool LastVisible;

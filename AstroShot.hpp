@@ -16,6 +16,9 @@
 #define __ASTROSHOT_HPP
 
 
+#include "Common.hpp"
+
+
 class AstroShot
 {
    public:     

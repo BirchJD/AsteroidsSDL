@@ -15,6 +15,9 @@
 Install Packages Required To Make Application
 =============================================
 
+Asteroids game written in C++ using SDL to provide cross platform builds for
+Linux, Apple, Windows and Android.
+
 YouTube: https://youtube.com/DevelopIT/
 GitHub: https://github.com/BirchJD/AsteroidsSDL
 
@@ -33,6 +36,9 @@ apt-get install libsdl2-dev
 
 # APPLE OSX INSTALL GCODE FROM APPLE STORE
 # DRAG SDL2 FRAMEWORK INTO /Library/frameworks/
+
+# ANDROID INSTALL REQUIRED PACKAGES:
+c4droid >= V8.0
 
 
 Make Application
@@ -61,3 +67,6 @@ DOWN		Hyperspace
 LEFT		Rotate Counter Clockwise
 RIGHT		Rotate Clockwise
 SHIFT		Fire
+
+Mouse/Touchpad implemented for Android operation, touch/click High Score on
+the display (top center) to display on screen controls.

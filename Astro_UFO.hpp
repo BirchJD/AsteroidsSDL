@@ -16,6 +16,13 @@
 #define __ASTRO_UFO_HPP
 
 
+#include "AstroShot.hpp"
+
+
+extern SDL_AudioDeviceID SdlAudioDevice;
+extern SdlAudioWavType WavFiles[];
+
+
 class AstroUFO
 {
    public:

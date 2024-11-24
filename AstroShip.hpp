@@ -16,6 +16,15 @@
 #define __ASTROSHIP_HPP
 
 
+#include <math.h>
+#include "Number.hpp"
+#include "AstroShot.hpp"
+
+
+extern SDL_AudioDeviceID SdlAudioDevice;
+extern SdlAudioWavType WavFiles[];
+
+
 class AstroShip
 {
    public:
@@ -86,11 +95,12 @@ class AstroShip
       short HyperCount;
       Number PlayerScore;
       AstroShot Shots[MAX_SHOTS];
+      float ExplodeDirectionX[FRAME_POINTS*2];
+      float ExplodeDirectionY[FRAME_POINTS*2];
       SDL_Point LifeFrame[FRAME_POINTS];
       SDL_Point LifeDisplayFrame[FRAME_POINTS];
       SDL_Point Frame[FRAMES][FRAME_POINTS];
       SDL_Point DisplayFrame[FRAME_POINTS*2];
-      SDL_Point ExplodeDirection[FRAME_POINTS*2];
       SDL_Point ThrustTrail[THRUST_POINTS];
 };
 

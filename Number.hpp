@@ -16,6 +16,9 @@
 #define __NUMBER_HPP
 
 
+#include "Common.hpp"
+
+
 class Number
 {
    public:

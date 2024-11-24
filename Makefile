@@ -16,7 +16,8 @@ MAKEFLAGS += --silent
 
 EXE = Asteroids
 
-CC = g++
+CC = gcc
+CXX = g++
 
 LINUX_INCDIRS = -I/usr/local/include
 LINUX_LIBDIRS = -L/usr/local/lib
@@ -35,16 +36,19 @@ APPLE_CFLAGS = $(APPLE_INCDIRS)
 
 
 linux: clean $(EXE).o ; printf ">>> BUILDING FOR $@ <<<\n"
-	   $(CC) $(LINUX_CFLAGS) -c *.cpp
-	   $(CC) $(LINUX_CFLAGS) -o $(EXE) $(LINUX_LIBDIRS) *.o $(LINUX_LIBS)
+	   $(CXX) $(LINUX_CFLAGS) -c *.cpp
+	   $(CXX) $(LINUX_CFLAGS) -o $(EXE) $(LINUX_LIBDIRS) *.o $(LINUX_LIBS)
 
 windows: clean $(EXE).o ; printf ">>> BUILDING FOR $@ <<<\n"
-	   $(CC) $(WIN_CFLAGS) -c *.cpp
-	   $(CC) $(WIN_CFLAGS) -o $(EXE) $(WIN_LIBDIRS) *.o $(WIN_LIBS)
+#		windres resources/icon.rc -O coff -o resources/icon.res
+#		windres resources/info.rc -O coff -o resources/info.res
+	   $(CXX) $(WIN_CFLAGS) -c *.cpp
+	   $(CXX) $(WIN_CFLAGS) -o $(EXE) $(WIN_LIBDIRS) *.o $(WIN_LIBS)
+#	   $(CXX) $(WIN_CFLAGS) -o $(EXE) $(WIN_LIBDIRS) *.o resources/*.res $(WIN_LIBS)
 
 apple: clean ; printf ">>> BUILDING FOR $@ <<<\n"
-	   $(CC) $(APPLE_CFLAGS) -c *.cpp
-	   $(CC) $(APPLE_CFLAGS) -o $(EXE) $(APPLE_LIBDIRS) *.o $(APPLE_LIBS)
+	   $(CXX) $(APPLE_CFLAGS) -c *.cpp
+	   $(CXX) $(APPLE_CFLAGS) -o $(EXE) $(APPLE_LIBDIRS) *.o $(APPLE_LIBS)
 
 clean:
 	rm -f *.o
